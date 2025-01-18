@@ -1,0 +1,19 @@
+<div class="task-edit-container">
+    <h3>Edit Task</h3>
+    <form (submit)="updateTask()">
+        <label for="title">Title&nbsp;<span style="color: red;">*</span></label>
+        <input type="text" id="title" [(ngModel)]="task.title" name="title" required>
+    
+        <label for="description">Description&nbsp;<span style="color: red;">*</span></label>
+        <textarea id="description" [(ngModel)]="task.description" name="description" required></textarea>
+    
+        <label for="status">Status</label>
+        <select id="status" [(ngModel)]="task.status" name="status">
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+        </select>
+    
+        <button type="submit">Update Task</button>
+    </form>
+</div>
+  

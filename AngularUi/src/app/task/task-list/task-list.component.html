@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+    <h2>Task Dashboard</h2>
+  
+    <div style="margin-bottom: 20px;">
+      <label for="status">Filter by Status:</label>
+      <select [(ngModel)]="status" (change)="filterTasksByStatus()">
+        <option value="">All</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+
+    <div style="margin: 10px; text-align: end;">
+        <nav>
+            <a routerLink="/login">Login</a>
+        <button><a style="color: aliceblue; text-decoration: none;" routerLink="/create-task">Add Task</a></button>
+
+        </nav>
+    </div>
+  
+    <div>
+       
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks">
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.status }}</td>
+                <td style="font-size: small;">
+                  <button><a style="color: aliceblue; text-decoration: none;" [routerLink]="['/edit-task', task.id]">Edit</a></button>
+                  <button (click)="deleteTask(task.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div> 
+    
+</div>
